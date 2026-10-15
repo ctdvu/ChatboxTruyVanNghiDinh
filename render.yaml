@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: tro-ly-nghi-dinh-rag
+    runtime: docker
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false

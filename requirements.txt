@@ -1,0 +1,8 @@
+streamlit>=1.39,<2
+pdfplumber>=0.11,<1
+pymupdf>=1.24,<2
+pytesseract>=0.3.13,<1
+Pillow>=10,<12
+scikit-learn>=1.5,<2
+joblib>=1.4,<2
+requests>=2.32,<3
