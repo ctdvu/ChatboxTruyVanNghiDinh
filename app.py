@@ -15,7 +15,11 @@ def index():
  v=TfidfVectorizer(ngram_range=(1,2),sublinear_tf=True);z={'v':v,'m':v.fit_transform([x['text'] for x in a]),'a':a};S.mkdir(exist_ok=True);joblib.dump(z,I);return z
 @st.cache_resource
 def load():
- z = joblib.load(I) if I.exists() else index()
+ if I.exists():
+  z = joblib.load(I)
+ else:
+  from indexer import build_index
+  z = build_index(output=I)
  # Chỉ mục tạo từ notebook dùng tên vectorizer/matrix/records.
  if 'v' not in z:
   z = {'v': z['vectorizer'], 'm': z['matrix'],
