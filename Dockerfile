@@ -5,4 +5,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+# Tạo chỉ mục OCR trong lúc build image, không bắt người dùng chờ ở request đầu tiên.
+RUN python indexer.py
 CMD streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false --server.enableXsrfProtection false
